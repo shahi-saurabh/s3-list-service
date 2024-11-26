@@ -14,7 +14,7 @@ BUCKET_NAME = 'one2n-s3'
 def list_s3_objects(prefix=''):
     """Function to list objects in an S3 bucket for a given prefix"""
     try:
-        response = s3.list_objects_v2(Bucket=one2n-s3, Prefix=prefix, Delimiter='/')
+        response = s3.list_objects_v2(Bucket=BUCKET_NAME, Prefix=prefix, Delimiter='/')
         if 'CommonPrefixes' in response:
             return [prefix['Prefix'].split('/')[-2] for prefix in response['CommonPrefixes']]
         return []
